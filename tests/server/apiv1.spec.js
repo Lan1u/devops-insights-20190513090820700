@@ -41,10 +41,10 @@
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
     });
 
-    it('with valid zip code and error from request call', function() {
+    it('with valid city name and error from request call', function() {
       reqMock = {
         query: {
-          zip: 79968
+          zip: "Hamilton"
         }
       };
 
