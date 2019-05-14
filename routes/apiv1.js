@@ -42,7 +42,40 @@ router.get('/getWeather', exports.getWeather);
 /*
 exports.getWeather2 = function(req, res) {
 	var zip = req.query.zip;
-	if( (zip === null) || (typeof(zip) === 'undefined') ) {
+	if( (zip === null) || (typeof(zip) === 'undefined') ) age: 1.0
+Preparing the build artifacts...
+Running "mochaTest:fvt" (mochaTest) task
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2019-05-13T23:31:09.794Z",
+    "end": "2019-05-13T23:31:10.247Z",
+    "duration": 453
+  },
+  "tests": [
+    {
+      "title": "with valid city name",
+      "fullTitle": "Get Weather with valid city name",
+      "currentRetry": 0,
+      "err": {
+        "message": "expected 400 to equal 200",
+        "showDiff": false,
+        "actual": 400,
+        "expected": 200,
+        "stack": "AssertionError: expected 400 to equal 200\n  at Request._callback (tests/fvt/api.specs.js:30:22)\n  at Request.self.callback (node_modules/request/request.js:185:22)\n  at Request.<anonymous> (node_modules/request/request.js:1161:10)\n  at IncomingMessage.<anonymous> (node_modules/request/request.js:1083:12)\n  at endReadableNT (_stream_readable.js:974:12)\n  at _combinedTickCallback (internal/process/next_tick.js:74:11)\n  at process._tickDomainCallback (internal/process/next_tick.js:122:9)\n",
+        "domain": {
+          "domain": null,
+          "_events": {},
+          "_eventsCount": 1,
+          "members": []
+        },
+        "domainThrown": true,
+        "uncaught": true
+      }
 		return res.status(400).send('zip missing');
 	}
 
