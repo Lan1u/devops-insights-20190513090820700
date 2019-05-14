@@ -49,10 +49,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
                 } 
-               
-            	var uluru = {lat: response.coord.lat, lng: response.coord.lon};
-            	var marker = new google.maps.Marker({position: uluru, map: mapProp});
-            	var marker = new google.maps.Marker({position: uluru, map: mapProp});
+              
             });
         } else {
             if(which === 1) {
