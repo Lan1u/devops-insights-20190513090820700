@@ -29,7 +29,7 @@
 
   describe('Get Weather', function() {
 
-    it('with without city name', function() {
+    it('with without zip code', function() {
       reqMock = {
         query: {
 
@@ -60,7 +60,7 @@
       assert(resMock.send.lastCall.calledWith('Failed to get the data'), 'Unexpected response:' + resMock.send.lastCall.args);
     });
 
-    it('with incomplete city name', function() {
+    it('with incomplete zip code', function() {
       reqMock = {
         query: {
           zip: "Hamilton"
@@ -79,7 +79,7 @@
       assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
     });
 
-    it('with valid city name', function() {
+    it('with valid zip code', function() {
       reqMock = {
         query: {
           zip: "Hamilton"
