@@ -38,6 +38,19 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
+                    var myLatLng = {lat: response.data.coord.lat, lng: response.data.coord.lon};
+
+        			var map = new google.maps.Map(document.getElementById('googleMap'), {
+          				zoom: 4,
+    			        center: myLatLng
+			        });
+
+        			var marker = new google.maps.Marker({
+         				position: myLatLng,
+    			    	map: map,
+          				
+        			});
+                    
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
@@ -48,6 +61,10 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
                 } 
+               
+            	var uluru = {lat: response.coord.lat, lng: response.coord.lon};
+            	var marker = new google.maps.Marker({position: uluru, map: mapProp});
+            	var marker = new google.maps.Marker({position: uluru, map: mapProp});
             });
         } else {
             if(which === 1) {
