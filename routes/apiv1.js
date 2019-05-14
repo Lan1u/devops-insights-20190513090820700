@@ -15,7 +15,10 @@ exports.getWeather = function(req, res) {
 		return res.status(400).send('zip missing'+typeof(zip));
 	}
 
-	var aurl = OPENWEATHERURL + '&zip=' + zip + ',nz';
+
+	var aurl = OPENWEATHERURL + '&q=' + zip + ',nz';
+	
+	
 
 	request({
 		method: 'GET',
