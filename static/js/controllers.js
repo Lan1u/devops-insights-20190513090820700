@@ -57,19 +57,19 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip2Weather = response.data.weather;
                      myLatLng={lat:response.data.lat,lng:response.data.lon};
                     
-                    a=new google.maps.Marker({postion:myLatLng,map:map});
+                    b=new google.maps.Marker({postion:myLatLng,map:map});
                 } else if(which === 3) {
                     $scope.zip3City = response.data.city;
                     $scope.zip3Weather = response.data.weather;
                      myLatLng={lat:response.data.lat,lng:response.data.lon};
                     
-                    a=new google.maps.Marker({postion:myLatLng,map:map});
+                    c=new google.maps.Marker({postion:myLatLng,map:map});
                 } else if(which === 4) {
                     $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
                      myLatLng={lat:response.data.lat,lng:response.data.lon};
                     
-                    a=new google.maps.Marker({postion:myLatLng,map:map});
+                    d=new google.maps.Marker({postion:myLatLng,map:map});
                 } 
               
             });
