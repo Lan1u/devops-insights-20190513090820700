@@ -16,7 +16,14 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.somemessage = "Some weather";
     $scope.zip1City = "";
     $scope.zip1Weather = "";
-
+	
+	var a,b,c,d;
+	
+	var map=new google.maps.Map(document.getElementById('googleMap'),{
+		zoom:4,
+		center:{lat:-36.8486,lng:174.7633}});
+	
+		
     $scope.zip = function(which) {
 
         var data = "";
@@ -35,19 +42,34 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 method: "GET",
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
+            	var myLatLng=null;
+            	
+            	
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
+                    myLatLng={lat:response.data.lat,lng:response.data.lon};
+                    
+                    a=new google.maps.Marker({postion:myLatLng,map:map});
                     
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
+                     myLatLng={lat:response.data.lat,lng:response.data.lon};
+                    
+                    a=new google.maps.Marker({postion:myLatLng,map:map});
                 } else if(which === 3) {
                     $scope.zip3City = response.data.city;
                     $scope.zip3Weather = response.data.weather;
+                     myLatLng={lat:response.data.lat,lng:response.data.lon};
+                    
+                    a=new google.maps.Marker({postion:myLatLng,map:map});
                 } else if(which === 4) {
                     $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
+                     myLatLng={lat:response.data.lat,lng:response.data.lon};
+                    
+                    a=new google.maps.Marker({postion:myLatLng,map:map});
                 } 
               
             });
