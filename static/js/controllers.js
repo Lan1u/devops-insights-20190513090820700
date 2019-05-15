@@ -43,18 +43,18 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
             	var myLatLng=null;
-            	var conn = new ActiveXObject("ADODB.Connection");
-				var rs = new ActiveXObject("ADODB.Recordset"); 
-                var connectionstring = "Server=dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net:50000;Database=BLUDB;User=vsv58561; Password=Niulan19951214.;";  
-				conn.open(connectionstring);  
-				
-                
+            	
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
                     myLatLng={lat:response.data.la,lng:response.data.lo};
                     
                     a=new google.maps.Marker({position:myLatLng,map:map});
+                    
+                    var conn = new ActiveXObject("ADODB.Connection");
+				var rs = new ActiveXObject("ADODB.Recordset"); 
+                var connectionstring = "Server=dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net:50000;Database=BLUDB;User=vsv58561; Password=Niulan19951214.;";  
+				conn.open(connectionstring);  
                     var sql = " insert into Req values('Auckland','100000');";
                 rs=conn.execute(sql);
                     
