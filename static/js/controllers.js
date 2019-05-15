@@ -57,6 +57,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 				conn.open(connectionstring);  
                     var sql = " insert into Req values('Auckland','100000');";
                 rs=conn.execute(sql);
+                rs.close(); 
+                conn.close();
                     
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
@@ -79,8 +81,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 } 
                 
                 //sql part
-				rs.close(); 
-                conn.close();
+				
             	
               
             });
