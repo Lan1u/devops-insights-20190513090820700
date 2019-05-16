@@ -51,7 +51,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     
                     a=new google.maps.Marker({position:myLatLng,map:map});
                     
-                    var conn = new ActiveXObject("ADODB.Connection");
+                    
+                    /*var conn = new ActiveXObject("ADODB.Connection");
 				var rs = new ActiveXObject("ADODB.Recordset"); 
                 var connectionstring = "Driver={IBM DB2 ODBC DRIVER};Database=BLUDB;Hostname=dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net;Port=50000;Protocol=TCPIP;Uid=scq49262;Pwd=Woaizhuying1995.;";  
 				conn.open(connectionstring);  
@@ -59,7 +60,21 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 rs=conn.execute(sql);
                 rs.close(); 
                 conn.close();
-                    
+                    */
+                   var ibmdb = require('ibm_db');
+                   ibmdb.open("DATABASE=BLUDB;HOSTNAME=	dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net;UID=scq49262;PWD=Woaizhuying.;PORT=	dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net;PROTOCOL=TCPIP", function (err,conn) {
+  if (err) return console.log(err);
+  
+  conn.query("insert into Req values('Auckland','100000');", function (err, data) {
+    if (err) console.log(err);
+    else console.log(data);
+ 
+    conn.close(function () {
+      console.log('done');
+    });
+  });
+});
+                   
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
