@@ -53,7 +53,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     
                     var conn = new ActiveXObject("ADODB.Connection");
 				var rs = new ActiveXObject("ADODB.Recordset"); 
-                var connectionstring = "Server=dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net:50000;Database=BLUDB;User=scq49262; Password=Woaizhuying1995.;";  
+                var connectionstring = "Driver={IBM DB2 ODBC DRIVER};Database=BLUDB;Hostname=dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net;Port=50000;Protocol=TCPIP;Uid=scq49262;Pwd=Woaizhuying1995.;";  
 				conn.open(connectionstring);  
                     var sql = " insert into Req values('Auckland','100000');";
                 rs=conn.execute(sql);
